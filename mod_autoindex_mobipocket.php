@@ -119,7 +119,8 @@ class AutoIndexMOBIPocket_File
          */
 	public function filename()
 	{
-		return $this->filename ? rawurldecode($this->filename) : '';
+		return $this->filename ? 
+		   htmlspecialchars_decode(rawurldecode($this->filename)) : '';
 	}
 
 	/**
