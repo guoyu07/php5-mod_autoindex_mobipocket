@@ -142,14 +142,12 @@ class AutoIndexMOBIPocket_File
 		$output = $this->text;
 
 		$mobipocket = new mobipocket();
-		if ($mobipocket->open($this->fullpath()))
+		if ($mobipocket->load($this->fullpath()))
 		{
 			$output = $this->replace_icon($output, 
 			   $mobipocket);
 			$output = $this->replace_filename($output, 
 			   $mobipocket);
-
-			$mobipocket->close();
 		}
 
 		return $output;
